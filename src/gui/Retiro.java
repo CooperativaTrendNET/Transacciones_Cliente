@@ -18,6 +18,7 @@ public class Retiro extends javax.swing.JInternalFrame {
      */
     public Retiro() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**

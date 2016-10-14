@@ -18,6 +18,7 @@ public class Consulta extends javax.swing.JInternalFrame {
      */
     public Consulta() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**

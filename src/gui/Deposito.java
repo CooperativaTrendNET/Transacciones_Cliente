@@ -18,6 +18,7 @@ public class Deposito extends javax.swing.JInternalFrame {
      */
     public Deposito() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**

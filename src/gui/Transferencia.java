@@ -20,6 +20,7 @@ public class Transferencia extends javax.swing.JInternalFrame {
      */
     public Transferencia() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**
