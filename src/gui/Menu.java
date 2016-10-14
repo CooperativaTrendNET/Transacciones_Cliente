@@ -15,6 +15,8 @@ public class Menu extends javax.swing.JFrame {
 
     Transferencia t;
     Consulta c;
+    Deposito d;
+    Retiro r;
     Login l;
     public Menu() {
         initComponents();
@@ -35,6 +37,8 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -54,7 +58,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.setBackground(new java.awt.Color(0, 153, 255));
 
-        jMenu1.setForeground(new java.awt.Color(0, 153, 255));
+        jMenu1.setForeground(new java.awt.Color(255, 255, 255));
         jMenu1.setText("Transacciones");
 
         jMenuItem1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -67,6 +71,28 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem2.setForeground(new java.awt.Color(0, 153, 255));
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/depositar.png"))); // NOI18N
+        jMenuItem2.setText("Depositar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jMenuItem5.setForeground(new java.awt.Color(0, 153, 255));
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/retiro.png"))); // NOI18N
+        jMenuItem5.setText("Retirar");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem5);
 
         jMenuItem3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenuItem3.setForeground(new java.awt.Color(0, 153, 255));
@@ -81,7 +107,7 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setForeground(new java.awt.Color(0, 153, 255));
+        jMenu2.setForeground(new java.awt.Color(255, 255, 255));
         jMenu2.setText("Salir");
 
         jMenuItem4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -133,6 +159,18 @@ public class Menu extends javax.swing.JFrame {
         l.setVisible(true);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        d = new Deposito();
+        jDesktopPane1.add(d);
+        d.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        r = new Retiro();
+        jDesktopPane1.add(r);
+        r.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -140,7 +178,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     // End of variables declaration//GEN-END:variables
 }
