@@ -5,7 +5,10 @@
  */
 package gui;
 
+import domain.Empleado;
+import domain.Transaccion;
 import javax.swing.JOptionPane;
+import logic.Comunicacion;
 
 /**
  *
@@ -16,9 +19,33 @@ public class Retiro extends javax.swing.JInternalFrame {
     /**
      * Creates new form Retiro
      */
-    public Retiro() {
+    Comunicacion c;
+    Empleado e;
+    Login l;
+    private String numCuenta, clave;
+    public Retiro(String numCuenta, String clave) {
         initComponents();
         this.setResizable(false);
+        c=new Comunicacion();
+        e=new Empleado();
+        l = new Login();
+        this.numCuenta = numCuenta;
+        this.clave = clave;
+    }
+    public String getNumCuenta() {
+        return numCuenta;
+    }
+
+    public void setNumCuenta(String numCuenta) {
+        this.numCuenta = numCuenta;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     /**
@@ -111,6 +138,7 @@ public class Retiro extends javax.swing.JInternalFrame {
         if(jTextField1.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Rellene el espacio");
         } else {
+            c.deposito_retiro(new Transaccion("Retiro", Float.parseFloat(jTextField1.getText()), numCuenta, clave));
             JOptionPane.showMessageDialog(null, "Retiro realizado");
         }
     }//GEN-LAST:event_jButton1ActionPerformed

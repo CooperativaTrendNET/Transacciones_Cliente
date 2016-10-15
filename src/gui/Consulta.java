@@ -5,7 +5,10 @@
  */
 package gui;
 
+import domain.Empleado;
+import domain.Transaccion;
 import javax.swing.JOptionPane;
+import logic.Comunicacion;
 
 /**
  *
@@ -16,9 +19,33 @@ public class Consulta extends javax.swing.JInternalFrame {
     /**
      * Creates new form Consulta
      */
-    public Consulta() {
+    Comunicacion c;
+    Empleado e;
+    Login l;
+    private String numCuenta, clave;
+    public Consulta(String numCuenta, String clave) {
         initComponents();
         this.setResizable(false);
+        c=new Comunicacion();
+        e=new Empleado();
+        l = new Login();
+        this.numCuenta = numCuenta;
+        this.clave = clave;
+    }
+    public String getNumCuenta() {
+        return numCuenta;
+    }
+
+    public void setNumCuenta(String numCuenta) {
+        this.numCuenta = numCuenta;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     /**
@@ -97,6 +124,7 @@ public class Consulta extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JOptionPane.showMessageDialog(null, "Consula");
+        c.consulta(new Transaccion("Consulta", numCuenta, clave));
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

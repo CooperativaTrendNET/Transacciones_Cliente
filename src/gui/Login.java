@@ -6,6 +6,7 @@
 package gui;
 
 import javax.swing.JOptionPane;
+import logic.Comunicacion;
 
 /**
  *
@@ -14,6 +15,8 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
 
     Menu m;
+    Comunicacion c;
+    public String numCuenta, clave;
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -40,7 +43,7 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Felix Titling", 0, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 102, 204));
-        jLabel2.setText("Nombre de usuario");
+        jLabel2.setText("Numero de Cuenta");
 
         jLabel3.setFont(new java.awt.Font("Felix Titling", 0, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 102, 204));
@@ -111,9 +114,13 @@ public class Login extends javax.swing.JFrame {
         if(jTextField1.getText().equals("") || jPasswordField1.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Rellene los espacios");
         } else {
-            m = new Menu();
-            m.setVisible(true);
-            this.setVisible(false);
+            if (c.login("Login", jTextField1.getText(), jPasswordField1.getText())) {
+                numCuenta = jTextField1.getText(); //= jTextField1.getText();
+                clave = jPasswordField1.getText(); //= jPasswordField1.getText();
+                m = new Menu(numCuenta, clave);
+                m.setVisible(true);
+                this.setVisible(false);
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

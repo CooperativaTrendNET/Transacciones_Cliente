@@ -18,12 +18,30 @@ public class Menu extends javax.swing.JFrame {
     Deposito d;
     Retiro r;
     Login l;
-    public Menu() {
+    private String numCuenta, clave;
+    public Menu(String numCuenta, String clave) {
         initComponents();
         jDesktopPane1.setBorder(new ImagenFondo1());
         this.setExtendedState(this.MAXIMIZED_BOTH);
+        this.numCuenta = numCuenta;
+        this.clave = clave;
+    }
+    public String getNumCuenta() {
+        return numCuenta;
     }
 
+    public void setNumCuenta(String numCuenta) {
+        this.numCuenta = numCuenta;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -140,13 +158,13 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        t = new Transferencia();
+        t = new Transferencia(numCuenta, clave);
         jDesktopPane1.add(t);
         t.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        c = new Consulta();
+        c = new Consulta(numCuenta, clave);
         jDesktopPane1.add(c);
         c.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
@@ -160,13 +178,13 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        d = new Deposito();
+        d = new Deposito(numCuenta, clave);
         jDesktopPane1.add(d);
         d.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        r = new Retiro();
+        r = new Retiro(numCuenta, clave);
         jDesktopPane1.add(r);
         r.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed

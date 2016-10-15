@@ -5,9 +5,12 @@
  */
 package gui;
 
+import domain.Empleado;
+import domain.Transaccion;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import logic.Comunicacion;
 
 /**
  *
@@ -18,9 +21,33 @@ public class Transferencia extends javax.swing.JInternalFrame {
     /**
      * Creates new form Transferencia
      */
-    public Transferencia() {
+    Comunicacion c;
+    Empleado e;
+    Login l;
+    private String numCuenta, clave;
+    public Transferencia(String numCuenta, String clave) {
         initComponents();
         this.setResizable(false);
+        c= new Comunicacion();
+        e=new Empleado();
+        l = new Login();
+        this.numCuenta = numCuenta;
+        this.clave = clave;
+    }
+    public String getNumCuenta() {
+        return numCuenta;
+    }
+
+    public void setNumCuenta(String numCuenta) {
+        this.numCuenta = numCuenta;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 
     /**
@@ -177,6 +204,8 @@ public class Transferencia extends javax.swing.JInternalFrame {
                     + "Monto: " + jTextField3.getText() + "\n" + "Desea realizar transacción?",
                     "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (i == JOptionPane.YES_OPTION) {
+                c.transferencia(new Transaccion("Transferencia", Float.parseFloat(jTextField3.getText()),
+                        numCuenta, jTextField1.getText(), clave));
                 JOptionPane.showMessageDialog(null, "Transacción realizada");
                 jTextArea1.setText("");
                 jTextField1.setText("");
