@@ -23,14 +23,14 @@ public class Transferencia extends javax.swing.JInternalFrame {
      */
     Comunicacion c;
     Empleado e;
-    Login l;
+   
     private String numCuenta, clave;
     public Transferencia(String numCuenta, String clave) {
         initComponents();
         this.setResizable(false);
         c= new Comunicacion();
         e=new Empleado();
-        l = new Login();
+        
         this.numCuenta = numCuenta;
         this.clave = clave;
     }

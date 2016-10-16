@@ -21,17 +21,19 @@ public class Consulta extends javax.swing.JInternalFrame {
      */
     Comunicacion c;
     Empleado e;
-    Login l;
+    
     private String numCuenta, clave;
+
     public Consulta(String numCuenta, String clave) {
         initComponents();
         this.setResizable(false);
-        c=new Comunicacion();
-        e=new Empleado();
-        l = new Login();
+        c = new Comunicacion();
+        e = new Empleado();
+      
         this.numCuenta = numCuenta;
         this.clave = clave;
     }
+
     public String getNumCuenta() {
         return numCuenta;
     }
@@ -123,8 +125,9 @@ public class Consulta extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, "Consulta");
-        c.consulta(new Transaccion("consulta", numCuenta, clave));
+
+        float monto = c.consulta(new Transaccion("consulta", numCuenta, clave));
+        JOptionPane.showMessageDialog(null, monto);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
