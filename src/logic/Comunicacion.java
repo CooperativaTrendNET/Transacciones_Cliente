@@ -66,6 +66,7 @@ public class Comunicacion {
     
     public float consulta(Transaccion transaccion){
         float monto = 0;
+        transaccion.setPass(Encriptar.password(transaccion.getPass(), Encriptar.MD5));
         
         try {
             this.enviar.println(transaccion.getTipo());
@@ -81,6 +82,7 @@ public class Comunicacion {
     
     public boolean deposito_retiro(Transaccion transaccion){
         boolean flag = false;
+        transaccion.setPass(Encriptar.password(transaccion.getPass(), Encriptar.MD5));
         
         try {
             this.enviar.println(transaccion.getTipo());
@@ -97,6 +99,7 @@ public class Comunicacion {
     
     public boolean transferencia(Transaccion transaccion){
         boolean flag = false;
+        transaccion.setPass(Encriptar.password(transaccion.getPass(), Encriptar.MD5));
         
         try {
             this.enviar.println(transaccion.getTipo());
