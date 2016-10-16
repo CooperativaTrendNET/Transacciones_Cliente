@@ -138,7 +138,7 @@ public class Deposito extends javax.swing.JInternalFrame {
         if(jTextField1.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Rellene el espacio");
         } else {
-            c.deposito_retiro(new Transaccion("Deposito", Float.parseFloat(jTextField1.getText()), numCuenta, clave));
+            c.deposito_retiro(new Transaccion("deposito", Float.parseFloat(jTextField1.getText()), numCuenta, clave));
             JOptionPane.showMessageDialog(null, "Deposito realizado");
         }
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -204,7 +204,7 @@ public class Transferencia extends javax.swing.JInternalFrame {
                     + "Monto: " + jTextField3.getText() + "\n" + "Desea realizar transacción?",
                     "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (i == JOptionPane.YES_OPTION) {
-                c.transferencia(new Transaccion("Transferencia", Float.parseFloat(jTextField3.getText()),
+                c.transferencia(new Transaccion("transferencia", Float.parseFloat(jTextField3.getText()),
                         numCuenta, jTextField1.getText(), clave));
                 JOptionPane.showMessageDialog(null, "Transacción realizada");
                 jTextArea1.setText("");

@@ -123,8 +123,8 @@ public class Consulta extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, "Consula");
-        c.consulta(new Transaccion("Consulta", numCuenta, clave));
+        JOptionPane.showMessageDialog(null, "Consulta");
+        c.consulta(new Transaccion("consulta", numCuenta, clave));
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

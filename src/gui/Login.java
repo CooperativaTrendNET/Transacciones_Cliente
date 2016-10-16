@@ -121,7 +121,7 @@ public class Login extends javax.swing.JFrame {
         if(jTextField1.getText().equals("") || pass.equals("")){
             JOptionPane.showMessageDialog(null, "Rellene los espacios");
         } else {
-            if (c.login("Login", jTextField1.getText(), pass)) {
+            if (c.login("login", jTextField1.getText(), pass)) {
                 numCuenta = jTextField1.getText(); //= jTextField1.getText();
                 clave = pass; //= jPasswordField1.getText();
                 m = new Menu(numCuenta, clave);
