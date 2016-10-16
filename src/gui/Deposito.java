@@ -20,33 +20,18 @@ public class Deposito extends javax.swing.JInternalFrame {
      * Creates new form Deposito
      */
     Comunicacion c;
-    Empleado e;
-    
+
     private String numCuenta, clave;
+
     public Deposito(String numCuenta, String clave) {
         initComponents();
         this.setResizable(false);
-        c=new Comunicacion();
-        e=new Empleado();
-      
+
         this.numCuenta = numCuenta;
         this.clave = clave;
     }
-    public String getNumCuenta() {
-        return numCuenta;
-    }
 
-    public void setNumCuenta(String numCuenta) {
-        this.numCuenta = numCuenta;
-    }
-
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -135,17 +120,23 @@ public class Deposito extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(jTextField1.getText().equals("")){
+        if (jTextField1.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Rellene el espacio");
         } else {
-            c.deposito_retiro(new Transaccion("deposito", Float.parseFloat(jTextField1.getText()), numCuenta, clave));
+            c = new Comunicacion();
+           if(c.deposito_retiro(new Transaccion("deposito", Float.parseFloat(jTextField1.getText()), numCuenta, clave))){
             JOptionPane.showMessageDialog(null, "Deposito realizado");
+           } else{
+                JOptionPane.showMessageDialog(null, "No se pudo completar el deposito");
+           }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
         char c = evt.getKeyChar();
-        if(c<'0'||c>'9') evt.consume();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextField1KeyTyped
 
 

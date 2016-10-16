@@ -22,7 +22,6 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        this.comunicacion = new Comunicacion();
     }
 
     /**
@@ -113,6 +112,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.comunicacion = new Comunicacion();
 
         String pass = "";
         char[] passChar = jPasswordField1.getPassword();

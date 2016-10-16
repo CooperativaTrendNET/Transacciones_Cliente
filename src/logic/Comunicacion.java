@@ -107,6 +107,7 @@ public class Comunicacion {
             this.enviar.println(transaccion.getPass());
             this.enviar.println(transaccion.getMonto());
             this.enviar.println(transaccion.getCuentaDestino());
+            this.enviar.println(transaccion.getDescripcion());
             flag = Boolean.parseBoolean(this.recibir.readLine());    
         } catch (IOException ex) {
             Logger.getLogger(Comunicacion.class.getName()).log(Level.SEVERE, null, ex);

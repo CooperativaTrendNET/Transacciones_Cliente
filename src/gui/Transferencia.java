@@ -22,18 +22,17 @@ public class Transferencia extends javax.swing.JInternalFrame {
      * Creates new form Transferencia
      */
     Comunicacion c;
-    Empleado e;
-   
+
     private String numCuenta, clave;
+
     public Transferencia(String numCuenta, String clave) {
         initComponents();
         this.setResizable(false);
-        c= new Comunicacion();
-        e=new Empleado();
-        
+
         this.numCuenta = numCuenta;
         this.clave = clave;
     }
+
     public String getNumCuenta() {
         return numCuenta;
     }
@@ -63,8 +62,6 @@ public class Transferencia extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -91,10 +88,6 @@ public class Transferencia extends javax.swing.JInternalFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-
-        jLabel4.setFont(new java.awt.Font("Felix Titling", 0, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 204, 255));
-        jLabel4.setText("Nombre Beneficiario");
 
         jLabel5.setFont(new java.awt.Font("Felix Titling", 0, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 204, 255));
@@ -141,15 +134,13 @@ public class Transferencia extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel7))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                             .addComponent(jTextField3))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -157,17 +148,13 @@ public class Transferencia extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(41, 41, 41)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -177,7 +164,7 @@ public class Transferencia extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
@@ -195,29 +182,35 @@ public class Transferencia extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (jTextField1.getText().equals("") || jTextField2.getText().equals("")
-                || jTextField3.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Rellene los espacion vacios");
+        if (jTextField1.getText().equals("") || jTextField3.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Rellene los espacios vacios");
         } else {
+            c = new Comunicacion();
+
             int i = JOptionPane.showConfirmDialog(null, "Num Cuenta destino: " + jTextField1.getText()
-                    + "\n" + "Nombre Beneficiario: " + jTextField2.getText() + "\n"
-                    + "Monto: " + jTextField3.getText() + "\n" + "Desea realizar transacción?",
+                    + "\n" + "Monto: " + jTextField3.getText() + "\n" + "Desea realizar transacción?",
                     "Confirmar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
             if (i == JOptionPane.YES_OPTION) {
-                c.transferencia(new Transaccion("transferencia", Float.parseFloat(jTextField3.getText()),
-                        numCuenta, jTextField1.getText(), clave));
-                JOptionPane.showMessageDialog(null, "Transacción realizada");
-                jTextArea1.setText("");
-                jTextField1.setText("");
-                jTextField2.setText("");
-                jTextField3.setText("");
+                Transaccion trans = new Transaccion("transferencia", Float.parseFloat(jTextField3.getText()),
+                        numCuenta, jTextField1.getText(), clave);
+                trans.setDescripcion(this.jTextArea1.getText());
+                if (c.transferencia(trans)) {
+                    JOptionPane.showMessageDialog(null, "Transacción realizada");
+                    jTextArea1.setText("");
+                    jTextField1.setText("");
+                    jTextField3.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se pudo completar la acción");
+                }
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
         char c = evt.getKeyChar();
-        if(c<'0'||c>'9') evt.consume();
+        if (c < '0' || c > '9') {
+            evt.consume();
+        }
     }//GEN-LAST:event_jTextField3KeyTyped
 
 
@@ -226,14 +219,12 @@ public class Transferencia extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
