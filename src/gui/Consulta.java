@@ -34,22 +34,6 @@ public class Consulta extends javax.swing.JInternalFrame {
         this.clave = clave;
     }
 
-    public String getNumCuenta() {
-        return numCuenta;
-    }
-
-    public void setNumCuenta(String numCuenta) {
-        this.numCuenta = numCuenta;
-    }
-
-    public String getClave() {
-        return clave;
-    }
-
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
