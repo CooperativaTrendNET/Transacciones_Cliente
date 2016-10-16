@@ -26,6 +26,7 @@ public class Consulta extends javax.swing.JInternalFrame {
     public Consulta(String numCuenta, String clave) {
         initComponents();
         this.setResizable(false);
+        this.jTextField1.setEditable(false);
         
         this.numCuenta = numCuenta;
         this.clave = clave;
