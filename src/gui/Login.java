@@ -14,13 +14,15 @@ import logic.Comunicacion;
  */
 public class Login extends javax.swing.JFrame {
 
-    Menu m;
-    Comunicacion c;
+    Menu menu;
+    Comunicacion comunicacion;
     public String numCuenta, clave;
+
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
+        this.comunicacion = new Comunicacion();
     }
 
     /**
@@ -111,23 +113,21 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         String pass = "";
         char[] passChar = jPasswordField1.getPassword();
         for (int i = 0; i < passChar.length; i++) {
             pass += passChar[i];
         }
-        
-        if(jTextField1.getText().equals("") || pass.equals("")){
+
+        if (jTextField1.getText().equals("") || pass.equals("")) {
             JOptionPane.showMessageDialog(null, "Rellene los espacios");
-        } else {
-            if (c.login("login", jTextField1.getText(), pass)) {
-                numCuenta = jTextField1.getText(); //= jTextField1.getText();
-                clave = pass; //= jPasswordField1.getText();
-                m = new Menu(numCuenta, clave);
-                m.setVisible(true);
-                this.setVisible(false);
-            }
+        } else if (comunicacion.login("login", jTextField1.getText(), pass)) {
+            numCuenta = jTextField1.getText(); //= jTextField1.getText();
+            clave = pass; //= jPasswordField1.getText();
+            menu = new Menu(numCuenta, clave);
+            menu.setVisible(true);
+            this.setVisible(false);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
