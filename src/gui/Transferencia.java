@@ -200,7 +200,7 @@ public class Transferencia extends javax.swing.JInternalFrame {
                     jTextField1.setText("");
                     jTextField3.setText("");
                 } else {
-                    JOptionPane.showMessageDialog(null, "No se pudo completar la acción");
+                    JOptionPane.showMessageDialog(null, "No se pudo completar la acción, el monto a transferir supera sus fondos");
                 }
             }
         }
