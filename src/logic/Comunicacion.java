@@ -10,6 +10,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import security.Encriptar;
 
 /**
  * @author adrian
@@ -37,6 +38,8 @@ public class Comunicacion {
     
     public boolean login(String tipo, String cuentaOrigen, String pass){
         boolean flag = false;
+        
+        pass = Encriptar.password(pass, Encriptar.MD5);
         
         try {
             this.enviar.println(tipo);

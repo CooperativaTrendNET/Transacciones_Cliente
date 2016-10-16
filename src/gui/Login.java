@@ -111,12 +111,19 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(jTextField1.getText().equals("") || jPasswordField1.getText().equals("")){
+        
+        String pass = "";
+        char[] passChar = jPasswordField1.getPassword();
+        for (int i = 0; i < passChar.length; i++) {
+            pass += passChar[i];
+        }
+        
+        if(jTextField1.getText().equals("") || pass.equals("")){
             JOptionPane.showMessageDialog(null, "Rellene los espacios");
         } else {
-            if (c.login("Login", jTextField1.getText(), jPasswordField1.getText())) {
+            if (c.login("Login", jTextField1.getText(), pass)) {
                 numCuenta = jTextField1.getText(); //= jTextField1.getText();
-                clave = jPasswordField1.getText(); //= jPasswordField1.getText();
+                clave = pass; //= jPasswordField1.getText();
                 m = new Menu(numCuenta, clave);
                 m.setVisible(true);
                 this.setVisible(false);

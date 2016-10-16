@@ -19,6 +19,7 @@ public class Menu extends javax.swing.JFrame {
     Retiro r;
     Login l;
     private String numCuenta, clave;
+    
     public Menu(String numCuenta, String clave) {
         initComponents();
         jDesktopPane1.setBorder(new ImagenFondo1());
@@ -26,6 +27,7 @@ public class Menu extends javax.swing.JFrame {
         this.numCuenta = numCuenta;
         this.clave = clave;
     }
+    
     public String getNumCuenta() {
         return numCuenta;
     }
